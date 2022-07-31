@@ -29,7 +29,7 @@ user_table_create = ("""CREATE TABLE USERS (
     """)
 
 song_table_create = ("""CREATE TABLE SONGS (
-    song_id serial PRIMARY KEY, 
+    song_id VARCHAR (25) PRIMARY KEY, 
     title VARCHAR (50), 
     artist_id VARCHAR ( 25 ), 
     year integer, 
@@ -37,7 +37,7 @@ song_table_create = ("""CREATE TABLE SONGS (
     """)
 
 artist_table_create = ("""CREATE TABLE ARTISTS (
-    artist_id VARCHAR ( 25 ), 
+    artist_id VARCHAR ( 25 ) PRIMARY KEY, 
     name VARCHAR (25), 
     location VARCHAR(50), 
     latitude NUMERIC, 
@@ -62,8 +62,8 @@ songplay_table_insert = ("""
 user_table_insert = ("""
 """)
 
-song_table_insert = ("""
-""")
+song_table_insert = ("""INSERT INTO SONGS(song_id,title,artist_id, year,duration ) 
+    VALUES(%(song_id)s, %(title)s,%(artist_id)s, %(year)s,%(duration)s)""")
 
 artist_table_insert = ("""
 """)
