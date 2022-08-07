@@ -30,8 +30,8 @@ user_table_create = ("""CREATE TABLE USERS (
 
 song_table_create = ("""CREATE TABLE SONGS (
     song_id VARCHAR (25) PRIMARY KEY, 
-    title VARCHAR (255), 
-    artist_id VARCHAR ( 25 ), 
+    title VARCHAR (255) NOT NULL , 
+    artist_id VARCHAR( 25 ) NOT NULL, 
     year integer, 
     duration NUMERIC)
     """)
