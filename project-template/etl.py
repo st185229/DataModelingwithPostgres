@@ -5,6 +5,7 @@ import pandas as pd
 import psycopg2
 
 from sql_queries import *
+from credentials import *
 
 
 def process_song_file(cur, filepath):
@@ -47,7 +48,7 @@ def process_log_file(cur, filepath):
         t,
         t.dt.hour,
         t.dt.day,
-        t.dt.week,
+        t.dt.isocalendar().week,
         t.dt.month,
         t.dt.year,
         t.dt.weekday], axis=1)
@@ -118,7 +119,7 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    conn = psycopg2.connect("host={} dbname={} user={} password={}".format(host, dbname,user,password))
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)

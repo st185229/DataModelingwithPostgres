@@ -30,7 +30,7 @@ user_table_create = ("""CREATE TABLE USERS (
 
 song_table_create = ("""CREATE TABLE SONGS (
     song_id VARCHAR (25) PRIMARY KEY, 
-    title VARCHAR (50), 
+    title VARCHAR (255), 
     artist_id VARCHAR ( 25 ), 
     year integer, 
     duration NUMERIC)
@@ -38,7 +38,7 @@ song_table_create = ("""CREATE TABLE SONGS (
 
 artist_table_create = ("""CREATE TABLE ARTISTS (
     artist_id VARCHAR ( 25 ) PRIMARY KEY, 
-    name VARCHAR (25), 
+    name VARCHAR (255), 
     location VARCHAR(50), 
     latitude NUMERIC, 
     longitude NUMERIC)
@@ -72,6 +72,7 @@ VALUES(%s, %s, %s, %s, %s)
 artist_table_insert = """
 INSERT INTO ARTISTS (artist_id ,name ,location , latitude ,longitude  ) 
 VALUES(%s, %s,%s, %s,%s)
+ON CONFLICT (artist_id) DO NOTHING
 """
 
 time_table_insert = """

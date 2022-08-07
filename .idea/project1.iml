@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/log_data/2018/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/song_data/A/A/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/song_data/A/B/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/song_data/A/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/project-template/data/song_data/.ipynb_checkpoints" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
