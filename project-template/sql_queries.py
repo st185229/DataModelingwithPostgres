@@ -67,6 +67,7 @@ ON CONFLICT (user_id) DO UPDATE set level = EXCLUDED.level
 song_table_insert = """
 INSERT INTO songs(song_id, title, artist_id, year, duration)
 VALUES(%s, %s, %s, %s, %s)
+ON CONFLICT (song_id) DO  NOTHING
 """
 
 artist_table_insert = """

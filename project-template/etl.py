@@ -9,6 +9,8 @@ from credentials import *
 
 
 def process_song_file(cur, filepath):
+    """ This function process song file and intsert them into the song table , it also extracts the artist info and
+    insert into artist table """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -34,6 +36,7 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """ Process log file from path and user, time and song tables"""
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -100,7 +103,8 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    # get all files matching extension from directory
+    """# get all files matching extension from directory"""
+
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, '*.json'))
@@ -119,12 +123,17 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """ This is the entrypoint , Initially it connects to the database """
+    # Connect to the DB
     conn = psycopg2.connect("host={} dbname={} user={} password={}".format(host, dbname,user,password))
+    # Return the cursor
     cur = conn.cursor()
-
+    # Process song data
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)
+    # Process log data
     process_data(cur, conn, filepath='data/log_data', func=process_log_file)
 
+    # close the connection and quit
     conn.close()
 
 
