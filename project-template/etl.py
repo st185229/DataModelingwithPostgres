@@ -9,8 +9,20 @@ from credentials import *
 
 
 def process_song_file(cur, filepath):
-    """ This function process song file and intsert them into the song table , it also extracts the artist info and
-    insert into artist table """
+    """
+    This function process song file and intsert them into the song table , it also extracts the artist info and
+    insert into artist table
+    Parameters
+    ----------
+    cur: str
+        database cursor
+    filepath: str
+        the file to be loaded
+    Returns
+    -------
+    void
+        Returns nothing
+     """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -36,7 +48,19 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    """ Process log file from path and user, time and song tables"""
+    """
+    Populates time, user and songplay table
+    Parameters
+    ----------
+    cur: str
+        database cursor
+    filepath: str
+        the file to be loaded
+    Returns
+    -------
+    void
+        Returns nothing
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -103,7 +127,23 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    """# get all files matching extension from directory"""
+    """
+    process datafiles
+    Parameters
+    ----------
+    cur: str
+        database cursor
+    conn: str
+        database connection
+    filepath: str
+        the file to be loaded
+    func:
+        the lambda function which execute processing of data
+    Returns
+    -------
+    void
+        Returns nothing
+    """
 
     all_files = []
     for root, dirs, files in os.walk(filepath):
