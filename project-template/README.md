@@ -50,4 +50,10 @@ In this first part, an ETL was performed on  dataset, song_data, to create the s
 4. The songplay table is populated at the last 
 ### ETL of bulk load
 The etl.py do the ETL of the entire fileset 
+### Appendix ERD
+
+The ERD is here 
+
+![](sparkifydb_erd.png)
+
 # End
